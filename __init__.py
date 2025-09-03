@@ -40,7 +40,7 @@ def extract_movie_details(movie_link):
 
 def main():
     # cria o arquivo CSV
-    with open('movies.csv', mode='w', newline='', encoding='utf-8') as file:
+    with open('ebac/movies.csv', mode='w', newline='', encoding='utf-8') as file:
         writer = csv.writer(file)
         writer.writerow(['Título', 'Data de Lançamento', 'Classificação', 'Sinopse'])
 

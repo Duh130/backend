@@ -43,7 +43,7 @@ def extract_movie_details(movie_link):
 
         if all([title, date, rating, plot_text]):
             print(title, date, rating, plot_text)
-            with open('movies.csv', mode='a', newline='', encoding='utf-8') as file:
+            with open('ebac/movies.csv', mode='a', newline='', encoding='utf-8') as file:
                 movie_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
                 movie_writer.writerow([title, date, rating, plot_text])
 
@@ -67,7 +67,7 @@ def extract_movies(soup):
 def main():
     start_time = time.time()
 
-    with open('movies.csv', mode='w', newline='', encoding='utf-8') as file:
+    with open('ebac/movies.csv', mode='w', newline='', encoding='utf-8') as file:
         movie_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
         movie_writer.writerow(['Título', 'Data de Lançamento', 'Classificação', 'Sinopse'])
 
