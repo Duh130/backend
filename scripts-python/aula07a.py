@@ -1,24 +1,32 @@
-                        movie_writer.writerow([title, date, rating, plot_text])
-def extract_movies(soup):
-    movies_table = soup.find('div', attrs={'data-testid': 'chart-layout-main-column'}).find('ul')
-    movies_table_rows = movies_table.find_all('li')
-    movie_links = ['https://imdb.com' + movie.find('a')['href'] for movie in movies_table_rows]
-    threads = min(MAX_THREADS, len(movie_links))
-    with concurrent.futures.ThreadPoolExecutor(max_workers=threads) as executor:
-        executor.map(extract_movie_details, movie_links)
-def main():
-    start_time = time.time()
-    # Criar arquivo CSV com cabeçalho
-    with open('movies.csv', mode='w', newline='', encoding='utf-8') as file:
-        movie_writer = csv.writer(file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-        movie_writer.writerow(['Título', 'Data de Lançamento', 'Classificação', 'Sinopse'])
-    # IMDB Most Popular Movies - 100 movies
-    popular_movies_url = 'https://www.imdb.com/chart/moviemeter/?ref_=nv_mv_mpm'
-    response = requests.get(popular_movies_url, headers=headers)
-    soup = BeautifulSoup(response.content, 'html.parser')
-    # Main function to extract the 100 movies from IMDB Most Popular Movies
-    extract_movies(soup)
-    end_time = time.time()
-    print('Total time taken: ', end_time - start_time)
-if __name__ == '__main__':
-    main()
+'''n1 = int(input('um valor  '))
+c = n1 + 1
+c2 = n1 - 1
+print (f'o sucessor e {c},e o antecessor e {c2}')
+
+num = int(input('digite um numero '))
+v = num * 2
+v2 = num * 3
+v3 = num ** num
+
+print (f'o dobro e {v},o triplo e {v2} , e a raiz quadrada e {v3}')
+
+nota1 = int (input('digite sua primeira nota '))
+nota2 = int(input('digite sua segunda nota '))
+
+res = (nota1 + nota2) / 2
+print (f'sua nota e {res}')
+
+metros =float(input('DIGITE A MEDIDA'))
+RES = metros * 100
+print (f'sua media e {RES}')
+
+
+tabu = int(input('digite o numero '))
+
+som = tabu * 1
+print (f'a sua tabuada e {tabu}')
+
+'''
+
+lag =input ('digite a largura')
+alt = input ('digite a altura')
